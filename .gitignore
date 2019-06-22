@@ -1,0 +1,36 @@
+
+# Created by https://www.gitignore.io/api/eclipse,intellij
+# Edit at https://www.gitignore.io/?templates=eclipse,intellij
+
+### Eclipse ###
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# sbteclipse plugin
+.target
+
+### Eclipse Patch ###
+# Eclipse Core
+.project
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+### Intellij ###
+
+.idea/
+out/
+*.iml
+target/
