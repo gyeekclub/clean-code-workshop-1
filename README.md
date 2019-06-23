@@ -58,7 +58,9 @@ mvn clean install
 
 It will download the necessary dependencies, run the junit tests and compile the project.
 
-When the build is success, then you can run the generated .jar file with the followings:
+When the build is success, then generate a .jar file under the `targer` folder.
+
+You can the .jar file run with the following command:
 
 ```
 java -jar clean-code-workshop-1-1.0-SNAPSHOT.jar
