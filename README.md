@@ -4,7 +4,7 @@ This is the repository for our first Clean Code workshop. It has the starter bit
 ## Requirements
 You need the following tools to run and compile this project:
 - [Git](https://git-scm.com/)
-- [Java 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Oracle Java 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or [OpenJDK 8](https://jdk.java.net/)
 - [Maven](https://maven.apache.org/)
 - **Optional**: one of these IDE softwares:
   - [IntelliJ IDEA](https://www.jetbrains.com/idea/)
