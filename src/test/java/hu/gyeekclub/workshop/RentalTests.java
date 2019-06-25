@@ -85,6 +85,8 @@ public class RentalTests {
         String expectedFrequentRenterPointsText = "You earned " + expectedFrequentRenterPoints + " frequent renter points";
         assertTrue(result.contains(expectedFrequentRenterPointsText));
     }
+
+    @Test
     void testRegularRentalAmountCalculation() {
         Customer customer = new Customer("John Doe");
         Movie movie = new Movie("Venom", Movie.REGULAR);
