@@ -2,7 +2,7 @@
 1. A meglévő kód alapján tervezzétek meg a teszteket. Milyen esetekkel fednétek le a program működését (a meglévő teszteken túl)?
 2. Refaktoráljátok a meglévő kódot! A cél: legyen clean code!
 
-  Íránymutatásul néhány alkalmazható refaktoring művelet:
+  Iránymutatásul néhány alkalmazható refaktoring művelet:
   * extract method
   * rename variable
   * move method
