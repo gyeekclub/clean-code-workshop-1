@@ -71,4 +71,28 @@ public class RentalTests {
             customer1Statement,
             "Rental Record for John Doe\n\tJohn Wick: Chapter 3 - Parabellum\t18.0\nAmount owed is 18.0\nYou earned 2 frequent renter points");
     }
+    void testRegularRentalAmountCalculation() {
+        Customer customer = new Customer("John Doe");
+        Movie movie = new Movie("Venom", Movie.REGULAR);
+        Rental rental = new Rental(movie, 1);
+        customer.addRental(rental);
+        String result = customer.statement();
+
+        double expectedAmount = 2.0;
+        String expected = "Amount owed is " + expectedAmount;
+        assertTrue(result.contains(expected));
+      }
+
+      @Test
+      void testLongTermRegularRentalAmountCalculation() {
+        Customer customer = new Customer("John Doe");
+        Movie movie = new Movie("Venom", Movie.REGULAR);
+        Rental rental = new Rental(movie, 7);
+        customer.addRental(rental);
+        String result = customer.statement();
+
+        double expectedAmount = 9.5;
+        String expected = "Amount owed is " + expectedAmount;
+        assertTrue(result.contains(expected));
+      }
 }
