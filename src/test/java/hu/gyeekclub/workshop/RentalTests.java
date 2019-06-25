@@ -34,41 +34,55 @@ public class RentalTests {
 
     @Test
     public void testOneDayNewReleaseRentalAmountCalculation() {
-        Movie movie1 = new Movie("John Wick: Chapter 3 - Parabellum", Movie.NEW_RELEASE);
-        Rental rental1 = new Rental(movie1, 1);
-        Customer customer1 = new Customer("John Doe");
-        customer1.addRental(rental1);
+        Movie movie = new Movie("John Wick: Chapter 3 - Parabellum", Movie.NEW_RELEASE);
+        Rental rental = new Rental(movie, 1);
+        Customer customer = new Customer("John Doe");
+        customer.addRental(rental);
 
-        String customer1Statement = customer1.statement();
+        String result = customer.statement();
 
-        assertEquals(customer1Statement,
-                "Rental Record for John Doe\n\tJohn Wick: Chapter 3 - Parabellum\t3.0\nAmount owed is 3.0\nYou earned 1 frequent renter points");
+        double expectedAmount = 3.0;
+        String expectedAmountText = "Amount owed is " + expectedAmount;
+        assertTrue(result.contains(expectedAmountText));
+
+        int expectedFrequentRenterPoints = 1;
+        String expectedFrequentRenterPointsText = "You earned " + expectedFrequentRenterPoints + " frequent renter points";
+        assertTrue(result.contains(expectedFrequentRenterPointsText));
     }
 
     @Test
     public void testTwoDaysNewReleaseRentalAmountCalculation() {
-        Movie movie1 = new Movie("John Wick: Chapter 3 - Parabellum", Movie.NEW_RELEASE);
-        Rental rental1 = new Rental(movie1, 2);
-        Customer customer1 = new Customer("John Doe");
-        customer1.addRental(rental1);
+        Movie movie = new Movie("John Wick: Chapter 3 - Parabellum", Movie.NEW_RELEASE);
+        Rental rental = new Rental(movie, 2);
+        Customer customer = new Customer("John Doe");
+        customer.addRental(rental);
 
-        String customer1Statement = customer1.statement();
+        String result = customer.statement();
 
-        assertEquals(customer1Statement,
-                "Rental Record for John Doe\n\tJohn Wick: Chapter 3 - Parabellum\t6.0\nAmount owed is 6.0\nYou earned 2 frequent renter points");
+        double expectedAmount = 6.0;
+        String expectedAmountText = "Amount owed is " + expectedAmount;
+        assertTrue(result.contains(expectedAmountText));
+
+        int expectedFrequentRenterPoints = 2;
+        String expectedFrequentRenterPointsText = "You earned " + expectedFrequentRenterPoints + " frequent renter points";
+        assertTrue(result.contains(expectedFrequentRenterPointsText));
     }
 
     @Test
     public void testMoreThanTwoDaysNewReleaseRentalAmountCalculation() {
-        Movie movie1 = new Movie("John Wick: Chapter 3 - Parabellum", Movie.NEW_RELEASE);
-        Rental rental1 = new Rental(movie1, 6);
-        Customer customer1 = new Customer("John Doe");
-        customer1.addRental(rental1);
+        Movie movie = new Movie("John Wick: Chapter 3 - Parabellum", Movie.NEW_RELEASE);
+        Rental rental = new Rental(movie, 6);
+        Customer customer = new Customer("John Doe");
+        customer.addRental(rental);
 
-        String customer1Statement = customer1.statement();
+        String result = customer.statement();
 
-        assertEquals(
-            customer1Statement,
-            "Rental Record for John Doe\n\tJohn Wick: Chapter 3 - Parabellum\t18.0\nAmount owed is 18.0\nYou earned 2 frequent renter points");
+        double expectedAmount = 18.0;
+        String expectedAmountText = "Amount owed is " + expectedAmount;
+        assertTrue(result.contains(expectedAmountText));
+
+        int expectedFrequentRenterPoints = 2;
+        String expectedFrequentRenterPointsText = "You earned " + expectedFrequentRenterPoints + " frequent renter points";
+        assertTrue(result.contains(expectedFrequentRenterPointsText));
     }
 }
