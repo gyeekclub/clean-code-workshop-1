@@ -1,16 +1,9 @@
 package hu.gyeekclub.workshop;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.lang.reflect.Executable;
-import java.lang.reflect.Method;
-import java.util.function.Function;
-
-import org.junit.jupiter.api.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 // these tests test for code security: how much code allows itself to be misused
 // As a wise man once said: thou shalt make thine code resilient to tardiness!
