@@ -3,43 +3,36 @@ package hu.gyeekclub.workshop;
 public class Main {
 
 	public static void main(String[] args) {
-		// create movies
-		Movie movie1 = new Movie("Horrora akadva", Movie.REGULAR);
-		Movie movie2 = new Movie("Halálos iramban", Movie.NEW_RELEASE);
-		Movie movie3 = new Movie("Egyszer volt, hol nem volt", Movie.CHILDRENS);
+		Movie[] movies = {
+			new RegularMovie("Horrora akadva"),
+			new NewReleaseMovie("Halálos iramban"),
+			new ChildrensMovie("Egyszer volt, hol nem volt"),
+		};
 
-		// create rentals
-		Rental rental1 = new Rental(movie1, 4);
-		Rental rental2 = new Rental(movie2, 5);
-		Rental rental3 = new Rental(movie3, 10);
+		Rental[] rentals = {
+			new Rental(movies[0], 4),
+			new Rental(movies[1], 5),
+			new Rental(movies[2], 10),
+		};
 
-		// create customer
-		Customer customer1 = new Customer("Teszt Elek");
-		Customer customer2 = new Customer("Kis Virág");
-		Customer customer3 = new Customer("Nagy Etelka");
+		Customer[] customers = {
+			new Customer("Teszt Elek"),
+			new Customer("Kis Virág"),
+			new Customer("Nagy Etelka"),
+		};
 
+		customers[0].addRental(rentals[0]);
+		customers[0].addRental(rentals[1]);
+		customers[0].addRental(rentals[2]);
 
-		// add rentals to customers
-		customer1.addRental(rental1);
-		customer1.addRental(rental2);
-		customer1.addRental(rental3);
+		customers[1].addRental(rentals[2]);
 
-		customer2.addRental(rental3);
+		customers[2].addRental(rentals[1]);
+		customers[2].addRental(rentals[1]);
+		customers[2].addRental(rentals[0]);
 
-		customer3.addRental(rental2);
-		customer3.addRental(rental2);
-		customer3.addRental(rental1);
-
-		// print results
-		String result;
-
-		result = customer1.statement();
-		System.out.println(result);
-
-		result = customer2.statement();
-		System.out.println(result);
-
-		result = customer3.statement();
-		System.out.println(result);
+		System.out.println(customers[0].statement());
+		System.out.println(customers[1].statement());
+		System.out.println(customers[2].statement());
 	}
 }
