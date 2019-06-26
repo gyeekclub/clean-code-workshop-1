@@ -25,7 +25,7 @@ public class SecurityTests {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> {
-                    new Movie(null, 0);
+                    new RegularMovie(null);
                 },
                 "Do not allow null parameters to stay unpunished."
         );
@@ -36,7 +36,7 @@ public class SecurityTests {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> {
-                    new Rental(null, 0);
+                    new Rental(null, 5);
                 },
                 "Do not allow null parameters to stay unpunished."
         );
@@ -50,29 +50,6 @@ public class SecurityTests {
                 new Customer("Test").addRental(null);
             },
             "No not allow null parameters to stay unpunished."
-        );
-    }
-
-    @Test
-    public void illegalParameterTestForMovieConstructor() {
-        assertThrows(
-            IllegalArgumentException.class,
-            () -> {
-                Movie invalidMovie = new Movie("Nope", 80); // 80 is invalid
-            },
-            "No not allow invalid parameters to happen."
-        );
-    }
-
-    @Test
-    public void illegalParameterTestForMovieForPriceCodeSetter() {
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> {
-                    Movie validMovie = new Movie("Nope", 1); // 1 is valid
-                    validMovie.setPriceCode(80); //80 is invalid
-                },
-                "No not allow invalid parameters to happen."
         );
     }
 }
