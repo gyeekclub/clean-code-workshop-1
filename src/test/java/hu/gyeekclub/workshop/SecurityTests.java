@@ -42,7 +42,7 @@ public class SecurityTests {
                 Movie invalidMovie = new Movie("Nope", 80); // 80 is invalid
                 invalidMovie.setPriceCode(88); // even more illegal
                 customer.addRental(new Rental(invalidMovie, 5));
-                customer.statement();
+                customer.getStatement();
             },
             "No not allow invalid parameters to happen."
         );
