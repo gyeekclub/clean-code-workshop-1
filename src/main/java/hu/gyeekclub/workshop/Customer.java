@@ -15,18 +15,18 @@ public class Customer {
 		this.name = name;
 	}
 
-	public void addRental(Rental arg) {
-		if (arg == null) {
+	public void addRental(Rental rental) {
+		if (rental == null) {
 			throw new IllegalArgumentException();
 		}
-		rentals.addElement(arg);
+		rentals.addElement(rental);
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public String statement() {
+	public String createReceipt() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
 		Enumeration rentals = this.rentals.elements();

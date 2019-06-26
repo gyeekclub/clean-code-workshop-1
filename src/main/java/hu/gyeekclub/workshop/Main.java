@@ -33,13 +33,13 @@ public class Main {
 		// print results
 		String result;
 
-		result = customer1.statement();
+		result = customer1.createReceipt();
 		System.out.println(result);
 
-		result = customer2.statement();
+		result = customer2.createReceipt();
 		System.out.println(result);
 
-		result = customer3.statement();
+		result = customer3.createReceipt();
 		System.out.println(result);
 	}
 }

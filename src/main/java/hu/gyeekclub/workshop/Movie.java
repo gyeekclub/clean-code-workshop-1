@@ -24,11 +24,11 @@ public class Movie {
 		return priceCode;
 	}
 
-	public void setPriceCode(int arg) {
-		if (arg > 2 ) {
+	public void setPriceCode(int priceCode) {
+		if (priceCode > 2 ) {
 			throw new IllegalArgumentException();
 		}
-		priceCode = arg;
+		this.priceCode = priceCode;
 	}
 
 	public String getTitle() {
