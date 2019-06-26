@@ -18,4 +18,5 @@ abstract public class Movie {
 	
 	abstract public int getPriceCode();
 	abstract public double getBasePrice();
+	abstract public double getAdditionalPrice(int daysRented);
 }

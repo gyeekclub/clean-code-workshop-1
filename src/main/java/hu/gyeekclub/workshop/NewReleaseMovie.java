@@ -13,4 +13,8 @@ public class NewReleaseMovie extends Movie {
 	public double getBasePrice() {
 		return 0.0;
 	}
+	
+	public double getAdditionalPrice(int daysRented) {
+		return daysRented * 3;
+	}
 }
