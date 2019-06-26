@@ -31,17 +31,19 @@ public class Customer {
 		int frequentRenterPoints = 0;
 		String result = "Rental Record for " + getName() + "\n";
 		for (Rental rental : rentals) {
-			//determine amounts for each line
-			double thisAmount = rental.getAmount();
 			// add frequent renter points
 			frequentRenterPoints += rental.countFrequentRenterPoints();
 			//show figures for this rental
-			result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
-			totalAmount += thisAmount;
+			result += buildMovieAmountLine(rental);
+			totalAmount += rental.getAmount();
 		}
 		//add footer lines
 		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 		return result;
+	}
+
+	private String buildMovieAmountLine(Rental rental) {
+		return "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getAmount()) + "\n";
 	}
 }
