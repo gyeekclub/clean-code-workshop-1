@@ -9,7 +9,7 @@ public class RentalTests {
 
     @Test
     public void testChildrenRentalAmountCalculation() {
-        Movie movie = new Movie("Winnie the Pooh", Movie.CHILDRENS);
+        Movie movie = new Movie("Winnie the Pooh", Movie.CHILDREN);
         Rental rental = new Rental(movie, 3);
         Customer customer = new Customer("Judy Jusper");
         customer.addRental(rental);
@@ -22,7 +22,7 @@ public class RentalTests {
 
     @Test
     public void testLongTermChildrenRentalAmountCalculation() {
-        Movie movie = new Movie("Winnie the Pooh", Movie.CHILDRENS);
+        Movie movie = new Movie("Winnie the Pooh", Movie.CHILDREN);
         Rental rental = new Rental(movie, 6);
         Customer customer = new Customer("Judy Jusper");
         customer.addRental(rental);
