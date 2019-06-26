@@ -82,7 +82,6 @@ public class SecurityTests {
             () -> {
                 Customer customer = new Customer("Test");
                 Movie invalidMovie = new Movie("Nope", 80); // 80 is invalid
-                invalidMovie.setPriceCode(88); // even more illegal
                 customer.addRental(new Rental(invalidMovie, 5));
                 customer.printBill();
             },

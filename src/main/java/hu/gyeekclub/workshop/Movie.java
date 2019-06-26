@@ -9,7 +9,7 @@ public class Movie {
 	public static final int NEW_RELEASE = 1;
 
 	private String title;
-	private int priceCode;
+	private Price price;
 
 	public Movie(String title, int priceCode) {
 		if (null == title) {
@@ -19,18 +19,38 @@ public class Movie {
 		if (!Set.of(CHILDRENS, REGULAR, NEW_RELEASE).contains(priceCode)) {
 			throw new IllegalArgumentException();
 		}
-		this.priceCode = priceCode;
+		setPriceByCode(priceCode);
 	}
 
-	public int getPriceCode() {
-		return priceCode;
+	private void setPriceByCode(int priceCode) {
+		switch(priceCode) {
+		case CHILDRENS:
+			price = new ChildrenPrice();
+			break;
+		case REGULAR:
+			price = new RegularPrice();
+			break;
+		case NEW_RELEASE:
+			price = new NewReleasePrice();
+			break;
+			default:
+				throw new IllegalArgumentException();
+		}
 	}
-
-	public void setPriceCode(int arg) {
-		priceCode = arg;
+	
+	public double getAmountByDays(int days) {
+		return price.getAmountByDays(days);
 	}
 
 	public String getTitle() {
 		return title;
+	}
+
+	public boolean isNewRelease() {
+		return false;
+	}
+
+	public int getFrequentRentalPoints(int daysRented) {
+		return price.getFrequentRentalPoints(daysRented);
 	}
 }
