@@ -10,7 +10,8 @@ public class Movie {
     private int priceCode;
 
     public Movie(String title, int priceCode) {
-        checkPriceCode(priceCode);
+        checkMovieTitle(title);
+        checkPriceCode(priceCode);        
         this.title = title;
         this.priceCode = priceCode;
     }
@@ -30,6 +31,12 @@ public class Movie {
 
     private void checkPriceCode(int priceCode) {
         if (priceCode < 0 || priceCode > 2) {
+            throw new IllegalArgumentException();
+        }
+    }
+    
+    private void checkMovieTitle(String movieTitle) {
+        if (movieTitle==null) {
             throw new IllegalArgumentException();
         }
     }
