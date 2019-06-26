@@ -56,18 +56,18 @@ public class RentalTests {
         assertTrue(result.contains(expected));
     }
 
-//    @Test
-//    public void testChildrenRentalAmountCalculation() {
-//        Movie movie = new Movie("Winnie the Pooh", Movie.CHILDRENS);
-//        Rental rental = new Rental(movie, 3);
-//        Customer customer = new Customer("Judy Jusper");
-//        customer.addRental(rental);
-//        String result = customer.statement();
-//
-//        double expectedAmount = 1.5;
-//        String expected = "Amount owed is " + expectedAmount;
-//        assertTrue(result.contains(expected));
-//    }
+    @Test
+    public void testChildrenRentalAmountCalculation() {
+        Movie movie = new Movie("Winnie the Pooh", Movie.CHILDRENS);
+        Rental rental = new Rental(movie, 3);
+        Customer customer = new Customer("Judy Jusper");
+        customer.addRental(rental);
+        String result = customer.getStatement();
+
+        double expectedAmount = 1.5;
+        String expected = "Amount owed is " + expectedAmount;
+        assertTrue(result.contains(expected));
+    }
 //
 //    @Test
 //    public void testLongTermChildrenRentalAmountCalculation() {
