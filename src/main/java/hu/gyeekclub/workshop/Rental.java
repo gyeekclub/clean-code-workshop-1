@@ -6,6 +6,11 @@ public class Rental {
 	private int daysRented;
 
 	public Rental(Movie movie, int daysRented) {
+		if (movie == null)
+		{
+			throw new IllegalArgumentException("Do not allow null parameters to stay unpunished.");
+		}
+		
 		this.movie = movie;
 		this.daysRented = daysRented;
 	}

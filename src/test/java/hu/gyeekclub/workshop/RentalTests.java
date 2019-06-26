@@ -9,7 +9,7 @@ public class RentalTests {
 
     @Test
     public void testChildrenRentalAmountCalculation() {
-        Movie movie = new Movie("Winnie the Pooh", Movie.CHILDRENS);
+        Movie movie = new Movie("Winnie the Pooh", MovieType.CHILDRENS);
         Rental rental = new Rental(movie, 3);
         Customer customer = new Customer("Judy Jusper");
         customer.addRental(rental);
@@ -22,7 +22,7 @@ public class RentalTests {
 
     @Test
     public void testLongTermChildrenRentalAmountCalculation() {
-        Movie movie = new Movie("Winnie the Pooh", Movie.CHILDRENS);
+        Movie movie = new Movie("Winnie the Pooh", MovieType.CHILDRENS);
         Rental rental = new Rental(movie, 6);
         Customer customer = new Customer("Judy Jusper");
         customer.addRental(rental);
@@ -35,7 +35,7 @@ public class RentalTests {
 
     @Test
     public void testOneDayNewReleaseRentalAmountCalculation() {
-        Movie movie = new Movie("John Wick: Chapter 3 - Parabellum", Movie.NEW_RELEASE);
+        Movie movie = new Movie("John Wick: Chapter 3 - Parabellum", MovieType.NEW_RELEASE);
         Rental rental = new Rental(movie, 1);
         Customer customer = new Customer("John Doe");
         customer.addRental(rental);
@@ -53,7 +53,7 @@ public class RentalTests {
 
     @Test
     public void testTwoDaysNewReleaseRentalAmountCalculation() {
-        Movie movie = new Movie("John Wick: Chapter 3 - Parabellum", Movie.NEW_RELEASE);
+        Movie movie = new Movie("John Wick: Chapter 3 - Parabellum", MovieType.NEW_RELEASE);
         Rental rental = new Rental(movie, 2);
         Customer customer = new Customer("John Doe");
         customer.addRental(rental);
@@ -71,7 +71,7 @@ public class RentalTests {
 
     @Test
     public void testMoreThanTwoDaysNewReleaseRentalAmountCalculation() {
-        Movie movie = new Movie("John Wick: Chapter 3 - Parabellum", Movie.NEW_RELEASE);
+        Movie movie = new Movie("John Wick: Chapter 3 - Parabellum", MovieType.NEW_RELEASE);
         Rental rental = new Rental(movie, 6);
         Customer customer = new Customer("John Doe");
         customer.addRental(rental);
@@ -90,7 +90,7 @@ public class RentalTests {
     @Test
     void testRegularRentalAmountCalculation() {
         Customer customer = new Customer("John Doe");
-        Movie movie = new Movie("Venom", Movie.REGULAR);
+        Movie movie = new Movie("Venom", MovieType.REGULAR);
         Rental rental = new Rental(movie, 1);
         customer.addRental(rental);
         String result = customer.statement();
@@ -103,7 +103,7 @@ public class RentalTests {
       @Test
       void testLongTermRegularRentalAmountCalculation() {
         Customer customer = new Customer("John Doe");
-        Movie movie = new Movie("Venom", Movie.REGULAR);
+        Movie movie = new Movie("Venom", MovieType.REGULAR);
         Rental rental = new Rental(movie, 7);
         customer.addRental(rental);
         String result = customer.statement();
