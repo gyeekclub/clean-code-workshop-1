@@ -9,6 +9,9 @@ public class Customer {
 	private Vector<Rental> rentals = new Vector<>();
 
 	public Customer(String name) {
+            if (name==null){
+                throw new IllegalArgumentException();
+            }
 		this.name = name;
 	}
 
