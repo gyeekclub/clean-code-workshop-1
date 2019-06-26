@@ -6,6 +6,11 @@ public class Movie {
 	private MovieType priceCode;
 
 	public Movie(String title, MovieType priceCode) {
+		if (title == null)
+		{
+			throw new IllegalArgumentException("Do not allow null parameters to stay unpunished.");
+		}
+		
 		this.title = title;
 		this.priceCode = priceCode;
 	}
