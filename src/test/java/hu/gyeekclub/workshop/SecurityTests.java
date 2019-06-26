@@ -10,20 +10,40 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class SecurityTests {
 
     @Test
-    public void nullConstructorTest() {
+    public void nullConstructorTestForCustomer() {
         assertThrows(
             IllegalArgumentException.class,
             () -> {
                 new Customer(null);
-                new Movie(null, 0);
-                new Rental(null, 0);
             },
             "Do not allow null parameters to stay unpunished."
         );
     }
 
     @Test
-    public void nullParameterTest() {
+    public void nullConstructorTestForMovie() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> {
+                    new Movie(null, 0);
+                },
+                "Do not allow null parameters to stay unpunished."
+        );
+    }
+
+    @Test
+    public void nullConstructorTestForRental() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> {
+                    new Rental(null, 0);
+                },
+                "Do not allow null parameters to stay unpunished."
+        );
+    }
+
+    @Test
+    public void nullParameterTestForCustomerAddRental() {
         assertThrows(
             IllegalArgumentException.class,
             () -> {
@@ -34,17 +54,25 @@ public class SecurityTests {
     }
 
     @Test
-    public void illegalParameterTest() {
+    public void illegalParameterTestForMovieConstructor() {
         assertThrows(
             IllegalArgumentException.class,
             () -> {
-                Customer customer = new Customer("Test");
                 Movie invalidMovie = new Movie("Nope", 80); // 80 is invalid
-                invalidMovie.setPriceCode(88); // even more illegal
-                customer.addRental(new Rental(invalidMovie, 5));
-                customer.statement();
             },
             "No not allow invalid parameters to happen."
+        );
+    }
+
+    @Test
+    public void illegalParameterTestForMovieForPriceCodeSetter() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> {
+                    Movie validMovie = new Movie("Nope", 1); // 1 is valid
+                    validMovie.setPriceCode(80); //80 is invalid
+                },
+                "No not allow invalid parameters to happen."
         );
     }
 }

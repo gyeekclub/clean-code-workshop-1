@@ -10,6 +10,12 @@ public class Movie {
 	private int priceCode;
 
 	public Movie(String title, int priceCode) {
+		if (title == null) {
+			throw new IllegalArgumentException();
+		}
+		if (priceCode > 2 ) {
+			throw new IllegalArgumentException();
+		}
 		this.title = title;
 		this.priceCode = priceCode;
 	}
@@ -19,6 +25,9 @@ public class Movie {
 	}
 
 	public void setPriceCode(int arg) {
+		if (arg > 2 ) {
+			throw new IllegalArgumentException();
+		}
 		priceCode = arg;
 	}
 
