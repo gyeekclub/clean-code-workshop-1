@@ -16,6 +16,9 @@ public class Customer {
 	}
 
 	public void addRental(Rental arg) {
+            if (arg==null){
+                throw new IllegalArgumentException();
+            }
 		rentals.addElement(arg);
 	}
 
