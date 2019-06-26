@@ -15,7 +15,7 @@ public class SecurityTests {
             IllegalArgumentException.class,
             () -> {
                 new Customer(null);
-                new Movie(null, 0);
+                new Movie(null, MovieType.CHILDRENS);
                 new Rental(null, 0);
             },
             "Do not allow null parameters to stay unpunished."
@@ -39,8 +39,8 @@ public class SecurityTests {
             IllegalArgumentException.class,
             () -> {
                 Customer customer = new Customer("Test");
-                Movie invalidMovie = new Movie("Nope", 80); // 80 is invalid
-                invalidMovie.setPriceCode(88); // even more illegal
+                Movie invalidMovie = new Movie("Nope", MovieType.REGULAR); // 80 is invalid
+                invalidMovie.setPriceCode(MovieType.REGULAR); // even more illegal
                 customer.addRental(new Rental(invalidMovie, 5));
                 customer.statement();
             },

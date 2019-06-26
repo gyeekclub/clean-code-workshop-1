@@ -4,9 +4,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		// create movies
-		Movie movie1 = new Movie("Horrora akadva", Movie.REGULAR);
-		Movie movie2 = new Movie("Halálos iramban", Movie.NEW_RELEASE);
-		Movie movie3 = new Movie("Egyszer volt, hol nem volt", Movie.CHILDRENS);
+		Movie movie1 = new Movie("Horrora akadva", MovieType.REGULAR);
+		Movie movie2 = new Movie("Halálos iramban", MovieType.NEW_RELEASE);
+		Movie movie3 = new Movie("Egyszer volt, hol nem volt", MovieType.CHILDRENS);
 
 		// create rentals
 		Rental rental1 = new Rental(movie1, 4);
