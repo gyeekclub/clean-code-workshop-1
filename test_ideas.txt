@@ -1,0 +1,11 @@
+If REGULAR rental for 1 day then amount = 2
+If REGULAR rental for 3 day then amount = 3.5
+
+If NEW_RELEASE rental for 1 day then amount = 3
+If NEW_RELEASE rental for 3 day then amount = 9
+
+If CHILDREN rental for 1 day then amount = 1.5
+If CHILDREN rental for 4 day then amount = 3
+
+If NEW_RELEASE rental for 1 day then frequentRenterPoints = 1
+If NEW_RELEASE rental for 2 day then frequentRenterPoints = 2
