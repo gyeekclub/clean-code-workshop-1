@@ -1,5 +1,7 @@
 package hu.gyeekclub.workshop;
 
+import java.util.Set;
+
 public class Movie {
 
 	public static final int CHILDRENS = 2;
@@ -10,7 +12,13 @@ public class Movie {
 	private int priceCode;
 
 	public Movie(String title, int priceCode) {
+		if (null == title) {
+			throw new IllegalArgumentException();
+		}
 		this.title = title;
+		if (!Set.of(CHILDRENS, REGULAR, NEW_RELEASE).contains(priceCode)) {
+			throw new IllegalArgumentException();
+		}
 		this.priceCode = priceCode;
 	}
 

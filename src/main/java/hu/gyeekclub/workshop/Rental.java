@@ -6,6 +6,9 @@ public class Rental {
 	private int daysRented;
 
 	public Rental(Movie movie, int daysRented) {
+		if (null == movie || daysRented < 1) {
+			throw new IllegalArgumentException();
+		}
 		this.movie = movie;
 		this.daysRented = daysRented;
 	}
