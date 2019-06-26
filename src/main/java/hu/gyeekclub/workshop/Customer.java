@@ -20,28 +20,38 @@ public class Customer {
 		return name;
 	}
 
-	public String statement() {
+	public double getTotalRentalAmount() {
+		Enumeration rentals = this.rentals.elements();
 		double totalRentalAmount = 0;
+		while (rentals.hasMoreElements()) {
+			Rental rental = (Rental) rentals.nextElement();
+			double thisAmount = rental.getAmount();
+			totalRentalAmount += thisAmount;
+		}
+		return totalRentalAmount;
+	}
+
+	public int getTotalLoyaltyPoints() {
+		Enumeration rentals = this.rentals.elements();
 		int totalLoyaltyPoints = 0;
+		while (rentals.hasMoreElements()) {
+			Rental rental = (Rental) rentals.nextElement();
+			double loyaltyPoints = rental.getFrequentPointsForRental();
+			totalLoyaltyPoints += loyaltyPoints;
+		}
+		return totalLoyaltyPoints;
+	}
+
+	public String statement() {
 		Enumeration rentals = this.rentals.elements();
 		String rentalRecord = "Rental Record for " + getName() + "\n";
 		while (rentals.hasMoreElements()) {
 			Rental rental = (Rental) rentals.nextElement();
-			double thisAmount = rental.getAmount();
-			//determine amounts for each line
-			rentalRecord += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
-			totalRentalAmount += thisAmount;
-			totalLoyaltyPoints += rental.getFrequentPointsForRental();
+			rentalRecord += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getAmount()) + "\n";
 		}
-
-		//add footer lines
-		rentalRecord += "Amount owed is " + String.valueOf(totalRentalAmount) + "\n";
-		rentalRecord += "You earned " + String.valueOf(totalLoyaltyPoints) + " frequent renter points";
+		rentalRecord += "Amount owed is " + String.valueOf(this.getTotalRentalAmount()) + "\n";
+		rentalRecord += "You earned " + String.valueOf(this.getTotalLoyaltyPoints()) + " frequent renter points";
 		return rentalRecord;
 	}
-
-
-
-
 
 }
