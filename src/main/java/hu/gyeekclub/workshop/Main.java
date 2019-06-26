@@ -4,9 +4,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		// create movies
-		Movie movie1 = new Movie("Horrora akadva", Movie.REGULAR);
-		Movie movie2 = new Movie("Halálos iramban", Movie.NEW_RELEASE);
-		Movie movie3 = new Movie("Egyszer volt, hol nem volt", Movie.CHILDRENS);
+		Movie movie1 = new RegularMovie("Horrora akadva");
+		Movie movie2 = new NewReleaseMovie("Halálos iramban");
+		Movie movie3 = new ChildrenMovie("Egyszer volt, hol nem volt");
 
 		// create rentals
 		Rental rental1 = new Rental(movie1, 4);
@@ -33,13 +33,13 @@ public class Main {
 		// print results
 		String result;
 
-		result = customer1.statement();
+		result = customer1.createReceipt();
 		System.out.println(result);
 
-		result = customer2.statement();
+		result = customer2.createReceipt();
 		System.out.println(result);
 
-		result = customer3.statement();
+		result = customer3.createReceipt();
 		System.out.println(result);
 	}
 }

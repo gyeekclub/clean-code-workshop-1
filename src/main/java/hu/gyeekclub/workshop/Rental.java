@@ -6,6 +6,9 @@ public class Rental {
 	private int daysRented;
 
 	public Rental(Movie movie, int daysRented) {
+		if (movie == null) {
+			throw new IllegalArgumentException();
+		}
 		this.movie = movie;
 		this.daysRented = daysRented;
 	}
@@ -16,5 +19,13 @@ public class Rental {
 
 	public Movie getMovie() {
 		return movie;
+	}
+
+	public double CalculateAmount() {
+		return movie.CalculateAmount(daysRented);
+	}
+
+	public double calculateFrequentRenterPoints() {
+		return  movie.calculateFrequentRenterPoints(daysRented);
 	}
 }

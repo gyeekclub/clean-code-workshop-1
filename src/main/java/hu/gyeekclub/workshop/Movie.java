@@ -1,15 +1,20 @@
 package hu.gyeekclub.workshop;
 
-public class Movie {
+public abstract class Movie {
 
-	public static final int CHILDRENS = 2;
-	public static final int REGULAR = 0;
-	public static final int NEW_RELEASE = 1;
+
+
 
 	private String title;
 	private int priceCode;
 
 	public Movie(String title, int priceCode) {
+		if (title == null) {
+			throw new IllegalArgumentException();
+		}
+		if (priceCode > 2 ) {
+			throw new IllegalArgumentException();
+		}
 		this.title = title;
 		this.priceCode = priceCode;
 	}
@@ -18,11 +23,17 @@ public class Movie {
 		return priceCode;
 	}
 
-	public void setPriceCode(int arg) {
-		priceCode = arg;
+	public void setPriceCode(int priceCode) {
+		if (priceCode > 2 ) {
+			throw new IllegalArgumentException();
+		}
+		this.priceCode = priceCode;
 	}
 
 	public String getTitle() {
 		return title;
 	}
+
+	public abstract double CalculateAmount(int daysRented);
+	public abstract double calculateFrequentRenterPoints(int daysRented);
 }

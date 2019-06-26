@@ -1,0 +1,26 @@
+Customer.java
+    Konstruktor hívás név paraméterrel, assert: getName() visszaadja-e a nevet
+    A jelenlegi kódot csak úgy lehet tesztelni, hogy a visszaadott stringre assertálunk.
+
+    Ha nincs egykölcsönzés sem, akkor 0 az ár és 0 'hűségpont'
+    Ha van egy regular 1 napra annak az ára 2'
+                regular 3 napra annak 3,5 lesz az ára
+
+    New release mindig napok száma * 3
+
+    Children 3 napra 1,5
+    children 4 napra 3
+
+    Anny hűségpontot kap, ahány filmet kölcsönöz
+    Ha új release és több mint egy nap akkor is kap egy hűségpontot
+
+    Több film kölcsönzése esetén helyes-e a fizetendő összeg
+    Több film kölcsönzése esetén helyes-e a hűségpontok száma
+
+
+
+Rental.java
+    Konstruktor hívás tesztelése
+
+Movie.java
+    setter tesztelése
