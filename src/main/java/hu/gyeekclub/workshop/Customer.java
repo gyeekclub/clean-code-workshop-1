@@ -29,10 +29,8 @@ public class Customer {
 	public String statement() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
-		Enumeration rentals = this.rentals.elements();
 		String result = "Rental Record for " + getName() + "\n";
-		while (rentals.hasMoreElements()) {
-			Rental each = (Rental) rentals.nextElement();
+		for (Rental each : this.rentals) {
 			//determine amounts for each line
 			double thisAmount = getAmountByRental(each);
 			// add frequent renter points
