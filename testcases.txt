@@ -1,0 +1,55 @@
+Kód-teszt
+
+Movie
+- cím létezik
+- cím utf-8 valid
+- létezik a 2. paraméter, ami valid
+
+Customer
+- cím létezik
+- cím utf-8 valid
+- statement method mit ad vissza (string-e)
+
+Rental
+- létezik mindkét paraméter
+- az elsõ paraméter típusa Movie
+- a második paraméter egész, nem negítív szám
+
+
+
+Tesztesetek
+
+testChildrenRentalMovie
+  Movie: Micimackó, 2
+  Rental: 1
+  Customer: Mariska
+  
+
+testChildrenRentalMovieZeroDay
+  Movie: Micimackó, 2
+  Rental: 0
+  Customer: Mariska
+  
+
+testChildrenRentalMovieNegativeDay
+  Movie: Micimackó, 2
+  Rental: -2
+  Customer: Mariska
+
+
+testPremiereMovie
+  Movie: Micimackó, 1
+  Rental: 90
+  Customer: Mariska
+
+
+testRegularMovie
+  Movie: Micimackó, 0
+  Rental: 1
+  Customer: Mariska
+
+
+testBadMovie
+  Movie: Micimackó, 6
+  Rental: 1
+  Customer: Mariska
