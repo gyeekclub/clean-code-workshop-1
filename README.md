@@ -58,7 +58,7 @@ mvn clean install
 
 It will download the necessary dependencies, run the junit tests and compile the project.
 
-When the build is success, then generate a .jar file under the `targer` folder.
+When the build is success, then generate a .jar file under the `target` folder.
 
 You can the .jar file run with the following command:
 
