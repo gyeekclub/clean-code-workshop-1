@@ -2,26 +2,26 @@ package hu.gyeekclub.workshop;
 
 public class Movie {
 
-    public static final int CHILDRENS = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
+    public enum MovieTypes {
+        REGULAR,
+        NEW_RELEASE,
+        CHILDRENS;
+    }
 
     private String title;
-    private int priceCode;
+    private MovieTypes priceCode;
 
-    public Movie(String title, int priceCode) {
+    public Movie(String title, MovieTypes priceCode) {
         checkMovieTitle(title);
-        checkPriceCode(priceCode);        
         this.title = title;
         this.priceCode = priceCode;
     }
 
-    public int getPriceCode() {
+    public MovieTypes getPriceCode() {
         return priceCode;
     }
 
-    public void setPriceCode(int arg) {
-        checkPriceCode(arg);
+    public void setPriceCode(MovieTypes arg) {
         priceCode = arg;
     }
 
@@ -29,14 +29,9 @@ public class Movie {
         return title;
     }
 
-    private void checkPriceCode(int priceCode) {
-        if (priceCode < 0 || priceCode > 2) {
-            throw new IllegalArgumentException();
-        }
-    }
-    
+
     private void checkMovieTitle(String movieTitle) {
-        if (movieTitle==null) {
+        if (movieTitle == null) {
             throw new IllegalArgumentException();
         }
     }
