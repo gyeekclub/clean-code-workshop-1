@@ -10,8 +10,13 @@ public class Movie {
 	private int priceCode;
 
 	public Movie(String title, int priceCode) {
+
+		if (priceCode == CHILDRENS || priceCode == REGULAR || priceCode == NEW_RELEASE) {
+			this.priceCode = priceCode;
+		} else {
+			throw new IllegalArgumentException();
+		}
 		this.title = title;
-		this.priceCode = priceCode;
 	}
 
 	public int getPriceCode() {
@@ -19,7 +24,11 @@ public class Movie {
 	}
 
 	public void setPriceCode(int arg) {
-		priceCode = arg;
+		if (priceCode == CHILDRENS || priceCode == REGULAR || priceCode == NEW_RELEASE) {
+			priceCode = arg;
+		} else {
+			throw new IllegalArgumentException();
+		}
 	}
 
 	public String getTitle() {
