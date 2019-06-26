@@ -8,12 +8,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RentalTests {
 	
     @Test
-    public void gyeekclub1() {
+    public void testChildrenRentalMovie() {
         Movie movie = new Movie("Winnie the Pooh", Movie.CHILDRENS);
         Rental rental = new Rental(movie, 1);
         Customer customer = new Customer("Judy Jusper");
         customer.addRental(rental);
-        String result = customer.statement();
+        String result = customer.getStatement();
+
+        double expectedAmount = 1.5;
+        String expected = "Amount owed is " + expectedAmount;
+        assertTrue(result.contains(expected));
+    }
+    @Test
+    public void testChildren() {
+        Movie movie = new Movie("Winnie the Pooh", Movie.CHILDRENS);
+        Rental rental = new Rental(movie, 10);
+        Customer customer = new Customer("Judy Jusper");
+        customer.addRental(rental);
+        String result = customer.getStatement();
 
         double expectedAmount = 1.5;
         String expected = "Amount owed is " + expectedAmount;
@@ -25,7 +37,7 @@ public class RentalTests {
         Rental rental = new Rental(movie, 10);
         Customer customer = new Customer("Judy Jusper");
         customer.addRental(rental);
-        String result = customer.statement();
+        String result = customer.getStatement();
 
         double expectedAmount = 1.5;
         String expected = "Amount owed is " + expectedAmount;
@@ -37,7 +49,7 @@ public class RentalTests {
         Rental rental = new Rental(movie, -1);
         Customer customer = new Customer("Judy Jusper");
         customer.addRental(rental);
-        String result = customer.statement();
+        String result = customer.getStatement();
 
         double expectedAmount = 1.5;
         String expected = "Amount owed is " + expectedAmount;
