@@ -21,4 +21,12 @@ public class Rental {
 	public double getPrice() {
 		return movie.getBasePrice() + movie.getAdditionalPrice(daysRented);
 	}
+	
+	public int getFrequentRenterPoints() {
+		if (movie instanceof NewReleaseMovie && daysRented > 1) {
+			return 2;
+		}
+
+		return 1;
+	}
 }
