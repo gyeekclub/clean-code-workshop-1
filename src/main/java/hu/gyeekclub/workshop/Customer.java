@@ -15,24 +15,24 @@ public class Customer {
 		this.name = name;
 	}
 
-	public void addRental(Rental arg) {
-		if (null == arg) {
+	public void addRental(Rental rental) {
+		if (null == rental) {
 			throw new IllegalArgumentException();
 		}
-		rentals.addElement(arg);
+		rentals.addElement(rental);
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public String statement() {
+	public String printBill() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
 		String result = "Rental Record for " + getName() + "\n";
-		for (Rental rental : this.rentals) {
+		for (Rental rental : rentals) {
 			//determine amounts for each line
-			double thisAmount = getAmountByRental(rental);
+			double thisAmount = rental.getAmount();
 			// add frequent renter points
 			frequentRenterPoints++;
 			// add bonus for a two day new release rental
@@ -45,25 +45,5 @@ public class Customer {
 		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 		return result;
-	}
-
-	private double getAmountByRental(Rental each) {
-		double thisAmount = 0.0;
-		switch (each.getMovie().getPriceCode()) {
-			case Movie.REGULAR:
-				thisAmount += 2;
-				if (each.getDaysRented() > 2)
-					thisAmount += (each.getDaysRented() - 2) * 1.5;
-				break;
-			case Movie.NEW_RELEASE:
-				thisAmount += each.getDaysRented() * 3;
-				break;
-			case Movie.CHILDRENS:
-				thisAmount += 1.5;
-				if (each.getDaysRented() > 3)
-					thisAmount += (each.getDaysRented() - 3) * 1.5;
-				break;
-		}
-		return thisAmount;
 	}
 }
