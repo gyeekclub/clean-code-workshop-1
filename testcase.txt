@@ -1,0 +1,20 @@
+ 
+testcase:
+Customer can get rental new_release movie if rental.elements more than 0
+
+testcase:
+Customer can not get rental new_release movie if rental.elements more than 0
+
+testcase:
+Frequent renter points increase if customer rent movie
+
+testcase:
+X movie's thisAmount is Y if movie's daysRented is Z
+Example:
+Halálos iramban's thisAmount is 15 if daysRented is 5
+
+testcase:
+If getMovie().getPriceCode() equal Movie.NEW_RELEASE and getDaysRented > 1, frequency point is increase 1
+
+testcase:
+Customer totalAmount is increase if customer can rent movie
