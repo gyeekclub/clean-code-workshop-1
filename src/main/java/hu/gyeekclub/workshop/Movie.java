@@ -11,6 +11,10 @@ public class Movie {
 
 	public Movie(String title, int priceCode) {
 
+		if (title == null) {
+			throw new IllegalArgumentException();
+		} 
+
 		if (priceCode == CHILDRENS || priceCode == REGULAR || priceCode == NEW_RELEASE) {
 			this.priceCode = priceCode;
 		} else {

@@ -9,10 +9,17 @@ public class Customer {
 	private Vector<Rental> rentals = new Vector<>();
 
 	public Customer(String name) {
-		this.name = name;
+		if (name != null) {
+			this.name = name;
+		} else {
+			throw new IllegalArgumentException();
+		}
 	}
 
 	public void addRental(Rental arg) {
+		if (arg == null) {
+			throw new IllegalArgumentException();
+		}
 		rentals.addElement(arg);
 	}
 
