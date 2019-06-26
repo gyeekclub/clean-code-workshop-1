@@ -10,7 +10,7 @@ public class RentalTests {
 	@Test
     public void testZeroAmountCalculation() {
         Customer customer = new Customer("Judy Jusper");
-        String result = customer.statement();
+        String result = customer.printBill();
 
         double expectedAmount = 0;
         String expected = "Amount owed is " + expectedAmount;
@@ -24,7 +24,7 @@ public class RentalTests {
         Rental rental = new Rental(movie, 3);
         Customer customer = new Customer("Judy Jusper");
         customer.addRental(rental);
-        String result = customer.statement();
+        String result = customer.printBill();
 
         double expectedAmount = 1.5;
         String expected = "Amount owed is " + expectedAmount;
@@ -37,7 +37,7 @@ public class RentalTests {
         Rental rental = new Rental(movie, 6);
         Customer customer = new Customer("Judy Jusper");
         customer.addRental(rental);
-        String result = customer.statement();
+        String result = customer.printBill();
 
         double expectedAmount = 6.0;
         String expected = "Amount owed is " + expectedAmount;
@@ -51,7 +51,7 @@ public class RentalTests {
         Customer customer = new Customer("John Doe");
         customer.addRental(rental);
 
-        String result = customer.statement();
+        String result = customer.printBill();
 
         double expectedAmount = 3.0;
         String expectedAmountText = "Amount owed is " + expectedAmount;
@@ -69,7 +69,7 @@ public class RentalTests {
         Customer customer = new Customer("John Doe");
         customer.addRental(rental);
 
-        String result = customer.statement();
+        String result = customer.printBill();
 
         double expectedAmount = 6.0;
         String expectedAmountText = "Amount owed is " + expectedAmount;
@@ -101,7 +101,7 @@ public class RentalTests {
         Movie movie = new Movie("Venom", Movie.REGULAR);
         Rental rental = new Rental(movie, 1);
         customer.addRental(rental);
-        String result = customer.statement();
+        String result = customer.printBill();
 
         double expectedAmount = 2.0;
         String expected = "Amount owed is " + expectedAmount;
@@ -114,7 +114,7 @@ public class RentalTests {
         Movie movie = new Movie("Venom", Movie.REGULAR);
         Rental rental = new Rental(movie, 7);
         customer.addRental(rental);
-        String result = customer.statement();
+        String result = customer.printBill();
 
         double expectedAmount = 9.5;
         String expected = "Amount owed is " + expectedAmount;
@@ -128,7 +128,7 @@ public class RentalTests {
         Rental rental = new Rental(movie, 7);
         customer.addRental(rental);
         customer.addRental(new Rental(movie, 7));
-        String result = customer.statement();
+        String result = customer.printBill();
 
         double expectedAmount = 19.0;
         String expected = "Amount owed is " + expectedAmount;
@@ -140,7 +140,7 @@ public class RentalTests {
           Rental rental = new Rental(movie, 6);
           Customer customer = new Customer("John Doe");
           customer.addRental(rental);
-          String result = customer.statement();
+          String result = customer.printBill();
   		return result;
   	}
 }
