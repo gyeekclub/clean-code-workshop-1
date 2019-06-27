@@ -10,15 +10,57 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class SecurityTests {
 
     @Test
-    public void nullConstructorTest() {
+    public void customerNullConstructorTest() {
         assertThrows(
             IllegalArgumentException.class,
             () -> {
                 new Customer(null);
+            },
+            "Do not allow null parameters to stay unpunished."
+        );
+    }
+    
+    @Test
+    public void movieNullConstructorTest() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> {
                 new Movie(null, 0);
+            },
+            "Do not allow null parameters to stay unpunished."
+        );
+    }
+    
+    @Test
+    public void rentalNullConstructorTest() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> {
                 new Rental(null, 0);
             },
             "Do not allow null parameters to stay unpunished."
+        );
+    }
+    
+    @Test
+    public void rentalZeroDayConstructorTest() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> {
+                new Rental(new Movie("Movie the Movie", Movie.NEW_RELEASE), 0);
+            },
+            "Do not allow zero day to stay unpunished."
+        );
+    }
+    
+    @Test
+    public void rentalNegativeDayConstructorTest() {
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> {
+                new Rental(new Movie("Movie the Movie", Movie.NEW_RELEASE), -3);
+            },
+            "Do not allow zero day to stay unpunished."
         );
     }
 
@@ -40,9 +82,8 @@ public class SecurityTests {
             () -> {
                 Customer customer = new Customer("Test");
                 Movie invalidMovie = new Movie("Nope", 80); // 80 is invalid
-                invalidMovie.setPriceCode(88); // even more illegal
                 customer.addRental(new Rental(invalidMovie, 5));
-                customer.statement();
+                customer.printBill();
             },
             "No not allow invalid parameters to happen."
         );
